@@ -1,0 +1,28 @@
+{
+  "todos": [
+    {
+      "userId": 1,
+      "id": "1",
+      "title": "Learn Next.js",
+      "completed": false
+    },
+    {
+      "userId": 1,
+      "id": "2",
+      "title": "Set up JSON Server",
+      "completed": true
+    },
+    {
+      "id": "4cce",
+      "title": "hello",
+      "userId": "0c7ac298-4233-46f2-bd9a-e284aa806f8c",
+      "completed": false
+    },
+    {
+      "id": "6630",
+      "title": "make something",
+      "userId": "53020677-e3a9-4cb4-a58c-1cd598eb117d",
+      "completed": false
+    }
+  ]
+}
