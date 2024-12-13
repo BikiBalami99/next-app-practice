@@ -1,34 +1,36 @@
-import Link from "next/link";
-import { todo } from "node:test";
 import React from "react";
 
-async function getTodos() {
-  const todos = fetch("https://jsonplaceholder.typicode.com/todos").then(
-    (res) => res.json()
-  );
-  return todos;
+type Todo = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
+function getTodos() {
+  return fetch("https://jsonplaceholder.typicode.com/todos")
+    .then((res) => res.json())
+    .then((data) => data as Todo);
 }
 
-export default async function page() {
+export default async function Page() {
   const todos = await getTodos();
   return (
     <>
-      <h1>Todos</h1>
-      <ul>
-        {todos.map((todo) => {
-          return (
-            <li>
-              <Link href={`todos/${todo.id}`}>{todo.title}</Link>
-            </li>
-          );
-        })}
-      </ul>
+      <h1>Todo List</h1>
+
+      <form
+        style={{
+          display: "flex",
+          gap: ".25rem",
+          flexDirection: "column",
+          maxWidth: "200px",
+        }}
+      >
+        <label htmlFor="title">Title</label>
+        <input type="text" name="title" id="title" />
+        <button>Add</button>
+      </form>
     </>
   );
-}
-
-function wait(duration: number) {
-  return new Promise((resolve) => {
-    setTimeout(resolve, duration);
-  });
 }
